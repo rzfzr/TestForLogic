@@ -3,7 +3,6 @@
     <img alt="Vue logo" src="https://forlogic.net/app/uploads/2019/07/logoforlogic.png" />
   </div>
 </template>
-
 <script>
 export default {
   name: "App",
