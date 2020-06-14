@@ -1,11 +1,14 @@
 <template>
   <div class="container">
-    <ul>
-      <li>
-        <v-link href="/">Home</v-link>
-        <v-link href="/evaluation">Evaluation</v-link>
-      </li>
-    </ul>
+    <img style="width:100%" src="https://forlogic.net/app/uploads/2019/07/logoforlogic.png" />
+
+    <v-link href="/">Home</v-link>
+
+    <v-link v-if="!$store.state.user.isLogged" href="/login">Login</v-link>
+    <v-link v-if="!$store.state.user.isLogged" href="/signup">Signup</v-link>
+
+    <v-link v-if="$store.state.user.isLogged" href="/evaluation">Evaluation</v-link>
+    <a v-if="$store.state.user.isLogged" @click="signOut()">Logout</a>
 
     <slot></slot>
   </div>
@@ -13,18 +16,27 @@
 
 <script>
 import VLink from "../components/VLink.vue";
+import firebase from "firebase";
 export default {
   components: {
     VLink
+  },
+
+  methods: {
+    signOut() {
+      firebase.auth().signOut();
+    }
   }
 };
 </script>
 
 <style scoped>
 .container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 15px 30px;
-  background: #f9f7f5;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
 </style>
