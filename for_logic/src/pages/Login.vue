@@ -78,7 +78,6 @@ export default {
       firebase
         .auth()
         .signInWithEmailAndPassword(this.form.email, this.form.password)
-        // eslint-disable-next-line no-unused-vars
         .then(() => {
           this.$root.currentRoute = "/";
           window.history.pushState(null, "Home", "/");
