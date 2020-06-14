@@ -19,7 +19,6 @@ export default new Vuex.Store({
   mutations: {
 
     SET_CLIENTS(state, val) {
-      console.log('test', val)
       state.clients = val
     },
     SET_EVALUATIONS(state, val) {

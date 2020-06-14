@@ -10,9 +10,14 @@
       chips
       label="Clients"
       multiple
+      return-object
     ></v-select>
-    <v-text-field label="Grade" v-model="grade"></v-text-field>
-    <v-text-field label="Reason" v-model="reason"></v-text-field>
+
+    <div v-for="(client,i) in clients" :key="client.companyName">
+      <p>{{client.companyName}}</p>
+      <v-text-field label="Grade" v-model="grades[i]"></v-text-field>
+      <v-text-field label="Reason" v-model="reasons[i]"></v-text-field>
+    </div>
     <v-btn @click="createEvaluation">Create</v-btn>
   </main-layout>
 </template>
@@ -26,9 +31,9 @@ export default {
     return {
       date: "",
       clients: "",
-      grade: "",
-      reason: "",
-      items: ["foo", "bar", "fizz", "buzz"],
+      grades: [],
+      reasons: [],
+      items: [],
       error: null
     };
   },
@@ -37,11 +42,23 @@ export default {
   },
   methods: {
     createEvaluation() {
+      var clients = [];
+      for (var client in this.clients) {
+        var newClient = {
+          id: this.clients[client].id,
+          grade: this.grades[client],
+          reasons: this.reasons[client]
+        };
+        clients.push(newClient);
+      }
+
+      console.log("grades", this.grades);
+      console.log(clients);
+
       fire.EvaluationsCollection.add({
-        date: this.date,
-        clients: this.clients,
-        grade: this.grade,
-        reason: this.reason,
+        clients: clients,
+        // grade: this.grades,
+        // reason: this.reason,
         createdOn: new Date(),
         createdBy: this.$store.state.user.data.email
       })
