@@ -21,11 +21,7 @@ export default {
   methods: {
     go(event) {
       event.preventDefault();
-
       this.$root.currentRoute = this.href;
-      console.log(routes[this.href]);
-      console.log(this.href);
-      console.log(this.$store.state.user.isLogged);
       window.history.pushState(null, routes[this.href], this.href);
     }
   }

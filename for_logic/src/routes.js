@@ -2,5 +2,7 @@ export default {
     '/': 'Home',
     '/login': 'Login',
     '/signup': 'Signup',
-    '/evaluation': 'Evaluation'
+    '/newclient': 'NewClient',
+    '/evaluation': 'Evaluation',
+    '/results': 'Results'
 }

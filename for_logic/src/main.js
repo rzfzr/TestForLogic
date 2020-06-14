@@ -4,6 +4,7 @@ import store from "./store";
 import Main from "./layouts/Main.vue"
 
 import * as firebase from "firebase";
+import vuetify from './plugins/vuetify';
 
 
 
@@ -28,8 +29,8 @@ firebase.auth().onAuthStateChanged(user => {
 
 const app = new Vue({
   store,
-
   el: '#app',
+
   data: {
     currentRoute: window.location.pathname
   },
@@ -37,6 +38,7 @@ const app = new Vue({
   components: {
     Main
   },
+
   computed: {
     ViewComponent() {
       const matchingView = routes[this.currentRoute]
@@ -45,6 +47,9 @@ const app = new Vue({
         require('./pages/404.vue').default
     }
   },
+
+  vuetify,
+
   render(h) {
     return h(this.ViewComponent)
   }
