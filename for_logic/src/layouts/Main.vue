@@ -10,6 +10,7 @@
     <v-link v-if="$store.state.user.isLogged" href="/evaluation">New Evaluation</v-link>
     <v-link v-if="$store.state.user.isLogged" href="/newclient">New Client</v-link>
     <v-link v-if="$store.state.user.isLogged" href="/results">Reports</v-link>
+
     <a v-if="$store.state.user.isLogged" @click="signOut()">Logout</a>
 
     <slot></slot>

@@ -17,7 +17,7 @@ const firebaseConfig = {
   projectId: "forlogic-a4b41",
   storageBucket: "forlogic-a4b41.appspot.com",
   messagingSenderId: "1069650638141",
-  appId: "1:1069650638141:web:734ff15abd83b660fd8154"
+  appId: "1:1069650638141:web:734ffn15abd83b660fd8154"
 };
 
 firebase.initializeApp(firebaseConfig);
