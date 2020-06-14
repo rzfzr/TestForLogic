@@ -2,6 +2,9 @@ import Vue from 'vue'
 import routes from './routes'
 import store from "./store";
 import Main from "./layouts/Main.vue"
+import NewClient from "./pages/NewClient.vue"
+
+
 import vuetify from './plugins/vuetify';
 
 
@@ -27,7 +30,8 @@ const app = new Vue({
   },
 
   components: {
-    Main
+    Main,
+    NewClient
   },
 
   computed: {

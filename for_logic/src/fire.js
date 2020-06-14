@@ -1,4 +1,5 @@
 import * as firebase from "firebase";
+
 const firebaseConfig = {
     apiKey: "AIzaSyB7yEKyi8f_bA2TuzJSNKJiP7uAEuIiI-Q",
     authDomain: "forlogic-a4b41.firebaseapp.com",

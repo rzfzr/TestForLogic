@@ -4,7 +4,7 @@
     <v-text-field label="Full Name" v-model="fullName"></v-text-field>
     <v-text-field label="CNPJ" v-model="cnpj"></v-text-field>
     <v-text-field label="Initial Date" v-model="initialDate"></v-text-field>
-    <v-btn @click="createPost">Create</v-btn>
+    <v-btn @click="createClient">Create</v-btn>
     <!-- 
     <v-menu
       v-model="dateMenu"
@@ -25,7 +25,7 @@
 <script>
 import MainLayout from "../layouts/Main.vue";
 
-import firebase from "firebase";
+const fire = require("../fire.js");
 export default {
   data() {
     return {
@@ -42,21 +42,16 @@ export default {
     MainLayout
   },
   methods: {
-    createPost() {
-      firebase.postsCollection
-        .add({
-          companyName: "",
-          fullName: "",
-          cnpj: "",
-          initialDate: "",
-          createdOn: new Date(),
-          // eslint-disable-next-line no-undef
-          createdBy: $store.state.user.data.email
-        })
-        // eslint-disable-next-line no-unused-vars
-        .then(ref => {
-          this.post.content = "";
-        })
+    createClient() {
+      fire.ClientsCollection.add({
+        companyName: this.companyName,
+        fullName: this.fullName,
+        cnpj: this.cnpj,
+        initialDate: this.initialDate,
+        createdOn: new Date(),
+        createdBy: this.$store.state.user.data.email
+      })
+        .then()
         .catch(err => {
           console.log(err);
         });
