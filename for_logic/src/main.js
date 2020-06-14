@@ -5,6 +5,20 @@ import Main from "./layouts/Main.vue"
 import NewClient from "./pages/NewClient.vue"
 import vuetify from './plugins/vuetify';
 
+
+import Vuelidate from "vuelidate";
+
+
+
+import VueTheMask from 'vue-the-mask';
+
+
+
+Vue.use(VueTheMask);
+
+Vue.use(Vuelidate);
+
+
 const fire = require('./fire.js')
 fire.auth.onAuthStateChanged(user => {
   store.dispatch("fetchUser", user);

@@ -17,6 +17,7 @@
 <script>
 import VLink from "../components/VLink.vue";
 import firebase from "firebase";
+
 export default {
   components: {
     VLink

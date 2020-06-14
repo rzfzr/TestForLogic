@@ -1,6 +1,6 @@
 <template>
   <main-layout>
-    <v-text-field label="Month/Year" v-model="date"></v-text-field>
+    <v-text-field label="Month/Year" v-model="date" v-mask="'##/####'"></v-text-field>
     <v-select
       v-model="clients"
       :items="this.$store.state.clients"

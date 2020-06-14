@@ -2,8 +2,8 @@
   <main-layout>
     <v-text-field label="Company Name" v-model="companyName"></v-text-field>
     <v-text-field label="Full Name" v-model="fullName"></v-text-field>
-    <v-text-field label="CNPJ" v-model="cnpj"></v-text-field>
-    <v-text-field label="Initial Date" v-model="initialDate"></v-text-field>
+    <v-text-field label="CNPJ" v-model="cnpj" v-mask="'##.###.###/####-##'"></v-text-field>
+    <v-text-field label="Initial Date" v-model="initialDate" v-mask="'##/##/####'"></v-text-field>
     <v-btn @click="createClient">Create</v-btn>
     <!-- 
     <v-menu
