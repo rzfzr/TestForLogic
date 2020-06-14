@@ -4,7 +4,7 @@
     <v-text-field label="Full Name" v-model="fullName"></v-text-field>
     <v-text-field label="CNPJ" v-model="cnpj"></v-text-field>
     <v-text-field label="Initial Date" v-model="initialDate"></v-text-field>
-    <v-btn>Create</v-btn>
+    <v-btn @click="createPost">Create</v-btn>
     <!-- 
     <v-menu
       v-model="dateMenu"
@@ -24,13 +24,15 @@
 
 <script>
 import MainLayout from "../layouts/Main.vue";
+
+import firebase from "firebase";
 export default {
   data() {
     return {
-      initialDate: "",
-      fullName: "",
       companyName: "",
+      fullName: "",
       cnpj: "",
+      initialDate: "",
       // initialDate: new Date().toISOString().substr(0, 10),
       dateMenu: false,
       error: null
@@ -38,6 +40,27 @@ export default {
   },
   components: {
     MainLayout
+  },
+  methods: {
+    createPost() {
+      firebase.postsCollection
+        .add({
+          companyName: "",
+          fullName: "",
+          cnpj: "",
+          initialDate: "",
+          createdOn: new Date(),
+          // eslint-disable-next-line no-undef
+          createdBy: $store.state.user.data.email
+        })
+        // eslint-disable-next-line no-unused-vars
+        .then(ref => {
+          this.post.content = "";
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
   }
 };
 </script>
