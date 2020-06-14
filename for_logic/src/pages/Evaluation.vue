@@ -1,7 +1,7 @@
 <template>
   <main-layout>
     <v-text-field label="Month/Year" v-model="date"></v-text-field>
-    <v-text-field label="Clients" v-model="clients"></v-text-field>
+    <v-select v-model="clients" :items="items" attach chips label="Clients" multiple></v-select>
     <v-text-field label="Grade" v-model="grade"></v-text-field>
     <v-text-field label="Reason" v-model="reason"></v-text-field>
     <v-btn @click="createEvaluation">Create</v-btn>
@@ -19,7 +19,7 @@ export default {
       clients: "",
       grade: "",
       reason: "",
-
+      items: ["foo", "bar", "fizz", "buzz"],
       error: null
     };
   },

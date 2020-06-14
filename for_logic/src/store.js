@@ -4,6 +4,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    clients: [],
+    evaluations: [],
     user: {
       isLogged: false,
       data: null
@@ -15,6 +17,15 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+
+    SET_CLIENTS(state, val) {
+      console.log('test', val)
+      state.clients = val
+    },
+    SET_EVALUATIONS(state, val) {
+      state.evaluations = val
+    },
+
     SET_LOGGED_IN(state, value) {
       state.user.isLogged = value;
     },
