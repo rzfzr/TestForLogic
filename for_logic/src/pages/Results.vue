@@ -1,6 +1,11 @@
 <template>
   <main-layout>
-    <p>Results</p>
+    <div v-for="(evaluation) in this.$store.state.evaluations" :key="evaluation.id">
+      <p>{{String(new Date(evaluation.createdOn*1000).getDate() )+'/'+String( new Date(evaluation.createdOn*1000).getMonth())}}</p>
+      <p>{{evaluation.createdBy}}</p>
+      <!-- <p>{{evaluation.id}}</p> -->
+      <p>{{evaluation.clients}}</p>
+    </div>
   </main-layout>
 </template>
 

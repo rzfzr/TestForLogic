@@ -7,7 +7,7 @@
     <v-link class="menu-item" v-if="!$store.state.user.isLogged" href="/signup">Signup</v-link>
     <v-link class="menu-item" v-if="$store.state.user.isLogged" href="/evaluation">New Evaluation</v-link>
     <v-link class="menu-item" v-if="$store.state.user.isLogged" href="/newclient">New Client</v-link>
-    <v-link class="menu-item" v-if="$store.state.user.isLogged" href="/results">Reports</v-link>
+    <v-link class="menu-item" v-if="$store.state.user.isLogged" href="/results">Results</v-link>
     <a class="menu-item" v-if="$store.state.user.isLogged" @click="signOut()">Logout</a>
 
     <slot></slot>

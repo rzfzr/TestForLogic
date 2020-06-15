@@ -5,7 +5,7 @@
 
     <p>By Rafael Figueira Goncalves</p>
 
-    <p>In x Hours</p>
+    <p>In less than 9 Hours</p>
 
     <p>Available at https://github.com/rzfzr/TestForLogic</p>
   </main-layout>

@@ -7,9 +7,6 @@ import vuetify from './plugins/vuetify';
 
 
 import Vuelidate from "vuelidate";
-
-
-
 import VueTheMask from 'vue-the-mask';
 
 
